@@ -6,11 +6,11 @@ const createUserSchema = z.object({
 	email: z.string().email().min(5).max(100),
 	password: z.string().min(8).transform((pass) => hashSync(pass, 10)),
     admin:z.boolean().optional(),
-    active: z.boolean()
 })
 
 const userSchema = createUserSchema.extend({
 	id: z.number(),
+	active: z.boolean()
 })
 
 const userSchemaPassword = userSchema.omit({ password: true })

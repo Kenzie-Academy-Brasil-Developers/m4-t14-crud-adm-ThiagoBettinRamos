@@ -20,6 +20,6 @@ const listUserLoginService = async ( userId: number ): Promise<iUserPassword> =>
 	const queryResult: iUserResultWithPassword = await client.query(queryConfig)
 
 	return queryResult.rows[0]
-};
+}
 
 export default listUserLoginService

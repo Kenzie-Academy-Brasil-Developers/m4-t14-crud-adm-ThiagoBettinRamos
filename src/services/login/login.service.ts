@@ -58,4 +58,4 @@ const loginUserService = async (data: iLoginUserRequest): Promise<string> => {
 }
 
 
-export { loginUserService }
+export default loginUserService 
