@@ -1,0 +1,22 @@
+import { QueryConfig } from 'pg'
+import { client } from '../../database'
+
+const deleteUserService = async ( userId: number ): Promise<void> => {
+    const query: string = 
+    `
+        UPDATE
+            users
+        SET
+            active = false
+        WHERE
+            id = $1;
+    `
+    const QueryConfig: QueryConfig = {
+        text: query,
+        values: [userId]
+    }
+
+    await client.query(QueryConfig)
+}
+
+export default deleteUserService 
